@@ -1,4 +1,4 @@
-name: Sync fork with upstream
+Name: Sync fork with upstream
 
 on:
   workflow_dispatch:
@@ -41,7 +41,7 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.BINARIES_RELEASE_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }} # ဒီနေရာကို မည်သူမဆိုသုံးနိုင်တဲ့ Default Token ပြောင်းပေးလိုက်ပါတယ်
           commit-message: Fetch upstream ${{ steps.current_date.outputs.time }}
           branch: fetch-upstream-${{ steps.current_date.outputs.date }}
           title: Fetch upstream ${{ steps.current_date.outputs.date }}
